@@ -45,7 +45,7 @@ app.use("/api/feedback", feedbackRoutes);
 
 /* ================= HEALTH CHECK ================= */
 app.get("/", (req, res) => {
-  res.send("✅ API is running");
+  res.send("✅ API is running suceessfully");
 });
 
 /* ================= GLOBAL ERROR HANDLER ================= */
