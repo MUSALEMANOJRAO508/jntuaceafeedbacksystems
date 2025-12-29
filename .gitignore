@@ -1,5 +1,16 @@
+# Node
 node_modules/
+npm-debug.log*
+
+# Env files
 .env
 .env.local
+
+# Build folders
 dist/
 build/
+backend/.dist/
+frontend/.dist/
+
+# OS files
+.DS_Store
