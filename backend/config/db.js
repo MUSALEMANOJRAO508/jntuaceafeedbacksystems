@@ -1,13 +1,14 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 
-const connectDB = async () =>{
-    try{
-        await mongoose.connect("mongodb+srv://musalemanojraodcme033:Musale%4023005A0508@cluster0.yxdk6nk.mongodb.net/collegeDB?appName=Cluster0
-");
-        console.log("Mongidb connected successfully");
-    }catch(error){
-        console.log("mongodb error",error);
-    }
-}
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("✅ MongoDB connected successfully");
+  } catch (error) {
+    console.error("❌ MongoDB error:", error.message);
+    process.exit(1);
+  }
+};
 
 module.exports = connectDB;
