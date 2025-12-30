@@ -1,4 +1,5 @@
 import { useState } from "react";
+const API = import.meta.env.VITE_API_URL || "https://jntuaceafeedbacksystems.onrender.com";
 
 export default function App() {
   const [admission, setAdmission] = useState("");
@@ -28,7 +29,7 @@ export default function App() {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
+      const res = await fetch(`${API}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ admission, password })
@@ -43,7 +44,7 @@ export default function App() {
       setBatchYear(Number(`20${admission.substring(0, 2)}`));
 
       const feedbackRes = await fetch(
-        `http://localhost:5000/api/student/feedback-data?admission=${admission}`
+        `${API}/api/student/feedback-data?admission=${admission}`
       );
       const feedbackData = await feedbackRes.json();
 
@@ -94,7 +95,7 @@ export default function App() {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/api/feedback/submit", {
+      const res = await fetch(`${API}/api/feedback/submit`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
