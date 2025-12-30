@@ -16,8 +16,8 @@ export default function StudentFeedback() {
     }
 
     fetch(
-      `http://localhost:5000/api/student/feedback-data?admission=${admission}`
-    )
+  `${import.meta.env.VITE_API_URL}/api/student/feedback-data?admission=${admission}`
+)
       .then(res => res.json())
       .then(result => {
         if (!result.active) {
